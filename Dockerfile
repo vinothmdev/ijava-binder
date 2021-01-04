@@ -1,4 +1,4 @@
-FROM openjdk:14.0.2-jdk-buster
+FROM openjdk:14.0.2-jdk
 
 RUN apt-get update
 RUN apt-get install -y python3-pip
@@ -16,8 +16,9 @@ RUN curl -L https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-
 
 # Unpack and install the kernel
 RUN unzip ijava-kernel.zip -d ijava-kernel \
-  && cd ijava-kernel \
-  && python3 install.py --sys-prefix
+  && cd ijava-kernel
+COPY kernel.json .
+RUN  python3 install.py --sys-prefix
 
 # Set up the user environment
 
