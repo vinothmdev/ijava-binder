@@ -13,12 +13,13 @@ USER root
 
 # Download the kernel release
 RUN curl -L https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip > ijava-kernel.zip
+COPY kernel.json .
 
 # Unpack and install the kernel
 RUN unzip ijava-kernel.zip -d ijava-kernel \
-  && cd ijava-kernel
-COPY kernel.json .
-RUN  python3 install.py --sys-prefix
+  && cp kernel.json ijava-kernel/ \
+  && cd ijava-kernel \
+  && python3 install.py --sys-prefix
 
 # Set up the user environment
 
