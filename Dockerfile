@@ -17,7 +17,7 @@ COPY kernel.json .
 
 # Unpack and install the kernel
 RUN unzip ijava-kernel.zip -d ijava-kernel \
-  && cp kernel.json ijava-kernel/ \
+  && cp kernel.json ijava-kernel/java/ \
   && cd ijava-kernel \
   && python3 install.py --sys-prefix
 
