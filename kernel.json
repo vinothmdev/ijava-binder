@@ -2,15 +2,13 @@
     "argv": [
         "java",
         "-jar",
-		"--enable-preview",
-		"-ea",
+	"--enable-preview",
+	"-ea",
         "@KERNEL_INSTALL_DIRECTORY@/ijava-1.3.0.jar",
         "{connection_file}"
     ],
     "display_name": "Java",
     "language": "java",
     "interrupt_mode": "message",
-    "env": {
-        
-    }
+     "env": {"IJAVA_COMPILER_OPTS":"--enable-preview -source 14"}
 }
